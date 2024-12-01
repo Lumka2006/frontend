@@ -17,10 +17,11 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // MySQL connection setup
 const db = mysql.createConnection({
-  host: 'localhost',      // Change this if needed
-  user: 'root',           // Change this if needed
-  password: 'LumkaMdandy@2006',           // Change this if needed
-  database: 'guidance'  // Replace with your database name
+  host: process.env.DB_HOST || 'dpg-ct6bonqlqhvc73aho3k0-a',   
+  port: process.env.DB_PORT || 5432,
+  user: process.env.DB_USER || 'lully_user',        // Fetch from environment variable
+  password: process.env.DB_PASSWORD  || 'XF4MMQw07xn9yhJnZPswT33xpCRkb3eI',  
+  database: process.env.DB_NAME || 'lully_db '// Fetch from environment variable
 });
 
 // Connect to MySQL
